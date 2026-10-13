@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AiSearchRouteImport } from './routes/ai-search'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ResultsRouteImport } from './routes/results'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const AiSearchRoute = AiSearchRouteImport.update({
   id: '/ai-search',
   path: '/ai-search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -44,6 +50,7 @@ const ResultsRoute = ResultsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ai-search': typeof AiSearchRoute
+  '/dashboard': typeof DashboardRoute
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/results': typeof ResultsRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ai-search': typeof AiSearchRoute
+  '/dashboard': typeof DashboardRoute
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/results': typeof ResultsRoute
@@ -59,22 +67,42 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ai-search': typeof AiSearchRoute
+  '/dashboard': typeof DashboardRoute
   '/how-it-works': typeof HowItWorksRoute
   '/pricing': typeof PricingRoute
   '/results': typeof ResultsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ai-search' | '/how-it-works' | '/pricing' | '/results'
+  fullPaths:
+    | '/'
+    | '/ai-search'
+    | '/dashboard'
+    | '/how-it-works'
+    | '/pricing'
+    | '/results'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ai-search' | '/how-it-works' | '/pricing' | '/results'
+  to:
+    | '/'
+    | '/ai-search'
+    | '/dashboard'
+    | '/how-it-works'
+    | '/pricing'
+    | '/results'
   id:
-    '__root__' | '/' | '/ai-search' | '/how-it-works' | '/pricing' | '/results'
+    | '__root__'
+    | '/'
+    | '/ai-search'
+    | '/dashboard'
+    | '/how-it-works'
+    | '/pricing'
+    | '/results'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AiSearchRoute: typeof AiSearchRoute
+  DashboardRoute: typeof DashboardRoute
   HowItWorksRoute: typeof HowItWorksRoute
   PricingRoute: typeof PricingRoute
   ResultsRoute: typeof ResultsRoute
@@ -94,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-search'
       fullPath: '/ai-search'
       preLoaderRoute: typeof AiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -123,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AiSearchRoute: AiSearchRoute,
+  DashboardRoute: DashboardRoute,
   HowItWorksRoute: HowItWorksRoute,
   PricingRoute: PricingRoute,
   ResultsRoute: ResultsRoute,
