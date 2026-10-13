@@ -13,8 +13,8 @@ export function MarketingShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="absolute inset-x-0 top-5 z-30 px-4">
-        <div className="soft-shadow mx-auto flex h-[68px] max-w-[1120px] items-center justify-between rounded-full border border-border/80 bg-background/85 px-3 backdrop-blur-xl sm:px-7">
+      <header className="fixed inset-x-0 top-4 z-30 px-4">
+        <div className="soft-shadow mx-auto flex h-[68px] max-w-[1160px] items-center justify-between rounded-full border border-border/80 bg-background/85 px-3 backdrop-blur-xl sm:px-7">
           <Brand />
           <nav className="hidden gap-7 md:flex">
             {nav.map((n) => (
@@ -29,6 +29,9 @@ export function MarketingShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" className="hidden text-xs lg:inline-flex">
+              <Link to="/dashboard">Live demo</Link>
+            </Button>
             <Button asChild className="glow-button rounded-full px-3 text-xs sm:px-5">
               <Link to="/dashboard">
                 Get started <ArrowUpRight />
