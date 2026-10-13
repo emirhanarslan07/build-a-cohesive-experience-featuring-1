@@ -181,3 +181,4 @@
 .ranking-row { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .4s; will-change: transform; }
 .ranking-score { background-image: linear-gradient(115deg, var(--ink) 30%, color-mix(in oklch, var(--ink), var(--primary) 35%)); }
 .integration-logo .platform-logo { width: 28px; height: 28px; }
+section, .search-demo { scroll-margin-top: 108px; }

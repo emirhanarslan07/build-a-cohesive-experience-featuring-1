@@ -4,4 +4,4 @@
 - [x] Verify navigation, generation and mobile layout
 - [x] Replace placeholder platform logos with recognizable logo assets
 - [x] Upgrade marketing design and add animated ranking and before/after comparisons
-- [ ] Verify new interactions and mobile layouts
+- [x] Verify new interactions and mobile layouts
