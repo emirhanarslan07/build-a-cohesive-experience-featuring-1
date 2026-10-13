@@ -59,7 +59,7 @@ export function HowItWorks() {
           );
         })}
       </div>
-      <div className="grid gap-7 md:grid-cols-4">
+      <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
         {[
           [
             Search,

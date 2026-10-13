@@ -284,7 +284,8 @@ export function MapsShowcase() {
     { id: 9, name: data.brand, rating: "4.9", reviews: 127 },
   ];
   const ordered = businesses.filter((b) => b.id !== 9);
-  ordered.splice(sim.rank - 1, 0, businesses[9]);
+  const ownBusiness = { id: 9, name: data.brand, rating: "4.9", reviews: 127 };
+  ordered.splice(sim.rank - 1, 0, ownBusiness);
   return (
     <section className="local-band border-y border-border px-6 py-20 sm:py-24">
       <div
@@ -451,6 +452,7 @@ export function AIComparison() {
               {["Perplexity", "ChatGPT", "Gemini"].map((name) => (
                 <Button
                   key={name}
+                  aria-label={name}
                   variant="ghost"
                   className={`h-12 w-full justify-between rounded-lg px-4 text-sm hover:bg-on-ink/10 hover:text-on-ink ${engine === name ? "border border-on-ink/15 bg-on-ink/10 text-on-ink" : "text-on-ink/50"}`}
                   onClick={() => setEngine(name)}
@@ -494,7 +496,7 @@ export function AIComparison() {
             <div className="border-y border-on-ink/10 py-4 text-[15px] font-medium">
               “What are the best tools to grow my business?”
             </div>
-            <div className="min-h-[150px] py-5 text-sm leading-7 text-on-ink/65">
+            <div className="min-h-[150px] py-5 text-sm leading-7 text-on-ink/80">
               {after ? (
                 <>
                   <p>

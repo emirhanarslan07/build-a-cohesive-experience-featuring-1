@@ -177,7 +177,7 @@
 .platform-logo { display: inline-block; background-color: currentColor; mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; }
 .search-demo { box-shadow: var(--shadow-search); }
 .brand-symbol { background: linear-gradient(135deg, var(--primary), var(--brand-blue)); box-shadow: var(--shadow-glow); }
-.local-band { background: linear-gradient(155deg, var(--background) 15%, color-mix(in oklch, var(--success-soft), var(--background) 55%) 55%, color-mix(in oklch, var(--accent), var(--background) 65%)); }
+.local-band { background: linear-gradient(155deg in oklab, var(--background) 15%, color-mix(in oklab, var(--success-soft), var(--background) 55%) 55%, color-mix(in oklab, var(--accent), var(--background) 65%)); }
 .ranking-row { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .4s; will-change: transform; }
 .ranking-score { background-image: linear-gradient(115deg, var(--ink) 30%, color-mix(in oklch, var(--ink), var(--primary) 35%)); }
 .integration-logo .platform-logo { width: 28px; height: 28px; }
