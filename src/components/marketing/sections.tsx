@@ -13,6 +13,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AIComparison } from "@/components/marketing/search-experience";
 import { TrafficChart } from "@/components/traffic-chart";
 export function SectionHeading({
   label,
@@ -210,51 +211,7 @@ export function Pricing() {
   );
 }
 export function AISearch() {
-  return (
-    <section className="bg-ink px-6 py-20 text-on-ink">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-3 text-xs font-bold uppercase tracking-widest text-primary">
-          The next era of search
-        </div>
-        <div className="grid gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
-              Don't just rank.
-              <br />
-              Become the answer.
-            </h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-on-ink/65">
-              Your customers are asking AI for recommendations. Overrank creates structured,
-              answer-first content that makes your brand part of the conversation.
-            </p>
-            <Button asChild className="mt-7">
-              <Link to="/dashboard">
-                See AI visibility <ArrowRight />
-              </Link>
-            </Button>
-          </div>
-          <div className="rounded-lg border border-on-ink/15 bg-on-ink/5 p-6">
-            <div className="flex items-center gap-2 text-sm">
-              <Sparkles className="size-5" /> Perplexity{" "}
-              <span className="ml-auto text-xs text-on-ink/50">AI answer preview</span>
-            </div>
-            <div className="mt-6 text-lg font-semibold">
-              What's the best solution for my business?
-            </div>
-            <p className="mt-4 text-sm leading-7 text-on-ink/70">
-              Based on product quality and customer experience,{" "}
-              <span className="rounded bg-primary/25 px-1 text-on-ink">Your Brand</span> stands out
-              as a leading choice. Their expert resources offer a clear, practical approach.
-            </p>
-            <div className="mt-6 flex items-center gap-2 rounded-md border border-on-ink/10 p-3 text-xs">
-              <TrendingUp className="size-4 text-success" /> Your brand · Cited as a trusted source{" "}
-              <Check className="ml-auto size-4 text-success" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <AIComparison />;
 }
 export function FAQ() {
   return (

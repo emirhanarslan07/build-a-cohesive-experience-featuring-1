@@ -171,3 +171,13 @@
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes pulse-dot { 50% { box-shadow: 0 0 0 4px color-mix(in oklch, var(--success), transparent 88%); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+@theme inline { --color-rating: var(--rating); }
+:root { --rating: oklch(0.76 0.16 78); --shadow-search: 0 20px 65px oklch(0.32 0.055 280 / .1), 0 2px 8px oklch(0.32 0.055 280 / .035); }
+.platform-logo { display: inline-block; background-color: currentColor; mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; }
+.search-demo { box-shadow: var(--shadow-search); }
+.brand-symbol { background: linear-gradient(135deg, var(--primary), var(--brand-blue)); box-shadow: var(--shadow-glow); }
+.local-band { background: linear-gradient(155deg, var(--background) 15%, color-mix(in oklch, var(--success-soft), var(--background) 55%) 55%, color-mix(in oklch, var(--accent), var(--background) 65%)); }
+.ranking-row { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .4s; will-change: transform; }
+.ranking-score { background-image: linear-gradient(115deg, var(--ink) 30%, color-mix(in oklch, var(--ink), var(--primary) 35%)); }
+.integration-logo .platform-logo { width: 28px; height: 28px; }

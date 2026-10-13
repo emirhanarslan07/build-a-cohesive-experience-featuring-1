@@ -1,22 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ArrowRight,
   Play,
   Check,
-  Search,
-  Globe,
   Link2,
   TrendingUp,
   Sparkles,
   ChevronRight,
-  MousePointer2,
   ArrowUpRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MarketingShell } from "@/components/marketing/shell";
 import { PlatformLogo } from "@/components/brand";
 import { HowItWorks, AISearch, Results, Pricing, FAQ } from "@/components/marketing/sections";
+import { HeroSearch, MapsShowcase } from "@/components/marketing/search-experience";
 import heroBackground from "@/assets/search-background.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,12 +37,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 function Index() {
-  const [engine, setEngine] = useState<"Google" | "Perplexity">("Google");
-  const [query, setQuery] = useState("best solution for growing my business");
-  const [searched, setSearched] = useState(query);
   return (
     <MarketingShell>
-      <section className="hero-surface overflow-hidden px-5 pb-12 pt-36 sm:pt-40">
+      <section className="hero-surface overflow-hidden px-5 pb-10 pt-32 sm:pt-36">
         <img src={heroBackground} className="hero-art" alt="" width={1920} height={1024} />
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-3xl text-center">
@@ -54,7 +48,7 @@ function Index() {
               100% Automated. Zero Manual Publishing.
               <ChevronRight className="size-3" />
             </div>
-            <h1 className="mt-6 text-[43px] font-bold leading-[1.13] sm:text-[64px]">
+            <h1 className="mt-6 text-[39px] font-bold leading-[1.1] sm:text-[62px]">
               Get customers from
               <br className="hidden sm:block" /> Google & AI Search.
               <br />
@@ -116,111 +110,25 @@ function Index() {
             </div>
             <div className="mt-3 text-[9px] text-muted-foreground">✦ AI visibility is growing</div>
           </div>
-          <div className="relative mx-auto mt-10 max-w-[650px]">
-            <div className="mb-4 flex justify-center gap-1 rounded-full">
-              <Button
-                onClick={() => setEngine("Google")}
-                variant={engine === "Google" ? "secondary" : "ghost"}
-                size="sm"
-                className="rounded-full text-xs"
-              >
-                <span className="font-bold text-brand-blue">G</span>Google Search
-              </Button>
-              <Button
-                onClick={() => setEngine("Perplexity")}
-                variant={engine === "Perplexity" ? "secondary" : "ghost"}
-                size="sm"
-                className="rounded-full text-xs"
-              >
-                <Sparkles className="size-3" />
-                Perplexity AI
-              </Button>
-            </div>
-            <div className="soft-shadow rounded-xl border border-border bg-background p-4 sm:p-5">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSearched(query.trim() || "best solution for growing my business");
-                }}
-                className="flex h-11 items-center gap-3 rounded-full border border-border bg-muted/50 px-4"
-              >
-                <span className="text-xl font-bold text-brand-blue">
-                  {engine === "Google" ? "G" : <Sparkles className="size-5 text-foreground" />}
-                </span>
-                <input
-                  aria-label="Search preview query"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="min-w-0 flex-1 bg-transparent text-xs outline-none sm:text-sm"
-                />
-                <Button type="submit" size="icon" variant="ghost" aria-label="Search">
-                  <Search className="size-4 text-muted-foreground" />
-                </Button>
-              </form>
-              <div className="relative mt-4 rounded-lg border border-primary/35 bg-background p-4 ring-4 ring-primary/5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="flex size-8 items-center justify-center rounded-md border border-border bg-muted">
-                      <Globe className="size-4 text-primary" />
-                    </span>
-                    <div className="text-[10px]">
-                      <strong className="text-xs">Your Brand</strong>
-                      <p className="mt-0.5 text-muted-foreground">yourbrand.com › blog › growth</p>
-                    </div>
-                  </div>
-                  <span className="flex items-center gap-1 rounded-full bg-success-soft px-2 py-1 text-[10px] font-semibold text-success">
-                    <span className="size-1 rounded-full bg-success" />
-                    {engine === "Google" ? "#1 on Google" : "Cited in AI answer"}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-[16px] font-semibold text-brand-blue">
-                  {engine === "Google"
-                    ? "The best solution for growing your business in 2026"
-                    : `The answer to “${searched}”`}
-                </h3>
-                <p className="mt-1.5 text-xs leading-5 text-muted-foreground">
-                  Discover a smarter way to grow. Expert insights, actionable strategies, and
-                  everything you need to move your business forward.
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="flex items-center gap-1 rounded bg-success-soft px-2 py-1 text-[9px] font-medium text-success">
-                    <TrendingUp className="size-3" />
-                    +2,400 monthly clicks
-                  </span>
-                  <span className="flex items-center gap-1 rounded bg-accent px-2 py-1 text-[9px] font-medium text-primary">
-                    <Sparkles className="size-3" />
-                    {engine === "Google" ? "Featured snippet" : "Trusted source"}
-                  </span>
-                </div>
-                <MousePointer2 className="absolute -bottom-3 right-10 size-6 fill-foreground text-background" />
-              </div>
-            </div>
-            <div className="float-toast absolute -left-36 bottom-12 hidden rounded-lg border border-border bg-background px-4 py-3 soft-shadow xl:block">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="size-5 text-success" />
-                <strong className="text-sm">+1,800</strong>
-                <span className="text-[10px] text-muted-foreground">organic visitors</span>
-              </div>
-            </div>
-            <p className="mt-4 text-center text-[10px] text-muted-foreground">
-              Your brand. Everywhere they search.{" "}
-              <span className="text-muted-foreground/65">· Illustrative preview</span>
-            </p>
-          </div>
+          <HeroSearch />
         </div>
       </section>
       <section className="border-b border-border bg-background px-6 pb-10 pt-5">
         <p className="mb-6 text-center text-[11px] text-muted-foreground">
           PLUGS INTO YOUR CMS. SHOWS UP IN THEIR SEARCH.
         </p>
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-9 gap-y-5 text-muted-foreground sm:gap-x-12">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-9 gap-y-5 text-foreground/60 sm:gap-x-12">
           {["WordPress", "Shopify", "Webflow", "ChatGPT", "Perplexity", "Gemini"].map((n) => (
-            <div key={n} className="text-[16px]">
+            <div
+              key={n}
+              className="integration-logo text-[16px] transition-all duration-300 hover:text-foreground"
+            >
               <PlatformLogo name={n} />
             </div>
           ))}
         </div>
       </section>
+      <MapsShowcase />
       <HowItWorks />
       <AISearch />
       <Results />
